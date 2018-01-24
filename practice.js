@@ -143,10 +143,11 @@ uniq(names, function(uniqArr){
 
 function each(arr, cb){
   for(i=0;i<arr.length;i++) {
-    cb[arr[i].name, arr.indexOf(arr[i].name)];
+    arr.forEach((name, i) => cb(name, i)) 
   }
 };
 
+var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -162,11 +163,12 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-function getUserById(arr, id, cb) {
-  for(i=0;i<arr.length;i++){
-    result = arr.map(x => arr[i] = id)
+function getUserById(users, id, cb) {
+  for(let i=0;i<users.length;i++) {
+    for(let id in users[i]){
+      cb(users[i]);
+    }
   }
-return cb(result);
 }
 
 
